@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,21 +35,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
-
 </RelativeLayout>
 
+<RelativeLayout
+        android:id="@+id/news_no_network_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+    tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/no_network"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_centerInParent="true"
+            android:alpha="0.85"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/no_network_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="no network available"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/please_check_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_network_message"
+            android:layout_centerHorizontal="true"
+            android:text="Please check network settings and refresh"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-
-<!--&lt;!&ndash; Layout for a list of earthquakes &ndash;&gt;-->
-<!--<ListView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:id="@+id/list"-->
-    <!--android:orientation="vertical"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:divider="@null"-->
-    <!--android:dividerHeight="0dp"-->
-    <!--android:layout_centerInParent = "true"-->
-    <!--/>-->

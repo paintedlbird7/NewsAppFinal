@@ -24,11 +24,17 @@ public class NewsActivity extends AppCompatActivity
 
     private static final String LOG_TAG = NewsActivity.class.getName();
 
-    /** URL for news data from the USGS dataset */
-    private static final String USGS_REQUEST_URL =
-            //"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
-    //"https://content.guardianapis.com/search?api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658";
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
+    /** URL for news data from the Guardian */
+    private static final String NEWS_REQUEST_URL =
+    "https://content.guardianapis.com/search?from-date=2018-06-01" +
+            "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+            "contributor&page-size=10";
+//
+//    "https://content.guardianapis.com/search?from-date=2018-06-01" +
+//            "&to-date=2018-08-01&q=Android&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
+//            "contributor&page-size=10";
+
+
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -120,7 +126,7 @@ public class NewsActivity extends AppCompatActivity
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
         Log.i(LOG_TAG,"TEST: onCreateLoader() is called ...");
-        return new NewsLoader(this, USGS_REQUEST_URL);
+        return new NewsLoader(this, NEWS_REQUEST_URL);
     }
 
     @Override

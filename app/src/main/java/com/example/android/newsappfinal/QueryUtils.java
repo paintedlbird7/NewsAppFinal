@@ -19,13 +19,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Helper methods related to requesting and receiving news data from USGS.
+ * Helper methods related to requesting and receiving news data from The Guardian.
  */
 public final class QueryUtils {
 
     /** Tag for the log messages */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
     private static List<News> news;
+    private static String webTitle;
+    private static Object author;
 
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
@@ -36,7 +38,7 @@ public final class QueryUtils {
     }
 
     /**
-     * Query the USGS dataset and return a list of {@link News} objects.
+     * Query the news dataset and return a list of {@link News} objects.
      */
     public static List<News> fetchNewsData(String requestUrl) {
         Log.i(LOG_TAG,"TEST: fetchNewsData() is called ...");
@@ -144,25 +146,48 @@ public final class QueryUtils {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
+        // Create an empty ArrayList that we can start adding articles to
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
+
+
+
+
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
-            // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or earthquakes).
-            JSONArray newsArray = baseJsonResponse.getJSONArray("features");
 
-            // For each news in the earthquakeArray, create an {@link News} object
+            //Create the JSONObject with the key "response"
+            JSONObject responseJSONObject = baseJsonResponse.getJSONObject("response");
+
+            // Extract the JSONArray associated with the key called "results",
+            // which represents a list of news stories
+            JSONArray newsArray = baseJsonResponse.getJSONArray("results");
+
+            // For each news in the newsArray, create an {@link News} object
             for (int i = 0; i < newsArray.length(); i++) {
+
+
 
                 // Get a single news at position i within the list of earthquakes
                 JSONObject currentNews = newsArray.getJSONObject(i);
+
+                // Extract the value for the key called "webTitle"
+                String title = currentNews.getString("webTitle");
+
+                // Extract the value for the key called "sectionName"
+                String sectionName = currentNews.getString("sectionName");
+
+                // Extract the value for the key called "webPublicationDate"
+                String date = currentNews.getString("webPublicationDate");
+
+
+
+
 
                 // For a given news, extract the JSONObject associated with the
                 // key called "properties", which represents a list of all properties
@@ -170,7 +195,7 @@ public final class QueryUtils {
                 JSONObject properties = currentNews.getJSONObject("properties");
 
                 // Extract the value for the key called "mag"
-                double magnitude = properties.getDouble("mag");
+                //double magnitude = properties.getDouble("mag");
 
                 // Extract the value for the key called "place"
                 String location = properties.getString("place");
@@ -179,11 +204,31 @@ public final class QueryUtils {
                 long time = properties.getLong("time");
 
                 // Extract the value for the key called "url"
-                String url = properties.getString("url");
+                String url = currentNews.getString("webUrl");
 
+                //Extract the JSONArray with the key "tag"
+                JSONArray tagsArray = currentNews.getJSONArray("tags");
+
+                //Declare String variable to hold author name
+                String authorName = null;
+
+                if (tagsArray.length() == 1) {
+                    JSONObject contributorTag = (JSONObject) tagsArray.get(0);
+                    authorName = contributorTag.getString("webTitle");
+                }
+
+
+
+
+                // Extract the value for the key called "url"
+                //String url = properties.getString("url");
+
+                // Create a new NewsStory object with the title, section name, date,
+                // and url from the JSON response.
+                News news = new News(title, sectionName, date, url, author);
                 // Create a new {@link News} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News news = new News(magnitude, location, time, url);
+                //News news = new News(location, time, url);
 
                 // Add the new {@link News} to the list of earthquakes.
                 news.add(news);
