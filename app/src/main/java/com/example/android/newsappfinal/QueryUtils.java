@@ -194,8 +194,7 @@ public final class QueryUtils {
                 // for that news.
                 JSONObject properties = currentNews.getJSONObject("properties");
 
-                // Extract the value for the key called "mag"
-                //double magnitude = properties.getDouble("mag");
+
 
                 // Extract the value for the key called "place"
                 String location = properties.getString("place");
