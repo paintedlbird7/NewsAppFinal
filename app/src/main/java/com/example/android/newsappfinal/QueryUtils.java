@@ -11,12 +11,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Helper methods related to requesting and receiving news data from The Guardian.
@@ -51,7 +52,7 @@ public final class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+            Log.e(LOG_TAG, "Problem making the HTTPS request.", e);
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link News}s
@@ -85,10 +86,10 @@ public final class QueryUtils {
             return jsonResponse;
         }
 
-        HttpURLConnection urlConnection = null;
+        HttpsURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
-            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod("GET");

@@ -60,12 +60,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
 
         // Find the TextView with view ID location offset
-        TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.article_title);
-        TextView articleAuthor = convertView.findViewById(R.id.article_author);
+        TextView articleTitle = (TextView) listItemView.findViewById(R.id.title);
+        TextView articleAuthor = convertView.findViewById(R.id.author);
+
 
 
         // Create a new Date object from the time in milliseconds of the news
         Date dateObject = new Date(currentNews.getmTimeInMilliseconds());
+        //Title titleObject = new Title(currentNews.getmTitle());
+
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
@@ -81,11 +84,42 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the time of the current news in that TextView
         timeView.setText(formattedTime);
 
+//        // Find the TextView with view ID author
+//        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+//        // Format the author string (i.e. "4:30PM")
+//        String formattedAuthor = formatAuthor(authorObject);
+//        // Display the author of the current news in that TextView
+//        authorView.setText(formattedAuthor);
+//
+//        // Find the TextView with view ID author
+//        TextView titleView = (TextView) listItemView.findViewById(R.id.title);
+//        // Format the author string (i.e. "4:30PM")
+//        String formattedTitle = formatTitle(titleObject);
+//        // Display the author of the current news in that TextView
+//        titleView.setText(formattedTitle);
+
+
 
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
+
+    /**
+     * Return the formatted title string (i.e. "Once upon a time...") from a Title object.
+     */
+//    private String formatTitle(Title titleObject) {
+//        SimpleTitleFormat titleFormat = new SimpleTitleFormat("Once upon a time ....");
+//        return titleFormat.format(titleObject);
+//    }
+//
+//    /**
+//     * Return the formatted date string (i.e. "Jane Doe") from a Author object.
+//     */
+//    private String formatAuthor(Author authorObject) {
+//        SimpleAuthorFormat authorFormat = new SimpleAuthorFormat("Jane, Doe");
+//        return authorFormat.format(authorObject);
+//    }
 
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
