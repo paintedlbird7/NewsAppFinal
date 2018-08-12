@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 
@@ -27,7 +25,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * whether or not there is a location offset present ("5km N of Cairo, Egypt").
      */
     private static final String LOCATION_SEPARATOR = " of ";
-    private News currentNews;
+    //private News currentNews;
 
     /**
      * Constructs a new {@link NewsAdapter}.
@@ -36,11 +34,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * @param news is the list of articles, which is the data source of the adapter
      */
 
-    //private List<News> currentNews;
+    private List<News> currentNews;
 
     public NewsAdapter(Context context, List<News> news) {
         super(context, 0, news);
-        currentNews = (News) news; // assign it here
+        currentNews = news; // assign it here
     }
 
     /**
@@ -58,6 +56,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
         if (currentNews != null) { // if not null
             News news = currentNews.get(position);
+
 
             // Find the TextView with view ID location offset
             TextView articleTitle = (TextView) listItemView.findViewById(R.id.title);
