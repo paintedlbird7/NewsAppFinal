@@ -35,12 +35,12 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * @param context of the app
      * @param news is the list of articles, which is the data source of the adapter
      */
+
+    //private List<News> currentNews;
+
     public NewsAdapter(Context context, List<News> news) {
         super(context, 0, news);
-    }
-
-    public NewsAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
+        currentNews = (News) news; // assign it here
     }
 
     /**
@@ -48,7 +48,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * in the list of articles.
      */
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         // Check if there is an existing list item view (called convertView) that we can reuse,
         // otherwise, if convertView is null, then inflate a new list item layout.
         View listItemView = convertView;
@@ -56,33 +56,47 @@ public class NewsAdapter extends ArrayAdapter<News> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.news_list_item, parent, false);
         }
+        if (currentNews != null) { // if not null
+            News news = currentNews.get(position);
+
+            // Find the TextView with view ID location offset
+            TextView articleTitle = (TextView) listItemView.findViewById(R.id.title);
+            articleTitle.setText(news.getmTitle());
+
+            // Find the TextView with view ID location offset
+            TextView articleAuthor = (TextView) listItemView.findViewById(R.id.author);
+            articleAuthor.setText(news.getmAuthor());
+
+        }
+        //TODO: do the same with rest of TextViews after you get the correct values
+
+        return listItemView;
+    }
+
+}
 
 
 
-        // Find the TextView with view ID location offset
-        TextView articleTitle = (TextView) listItemView.findViewById(R.id.title);
-        TextView articleAuthor = convertView.findViewById(R.id.author);
 
 
-
-        // Create a new Date object from the time in milliseconds of the news
-        Date dateObject = new Date(currentNews.getmTimeInMilliseconds());
-        //Title titleObject = new Title(currentNews.getmTitle());
-
-
-        // Find the TextView with view ID date
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
-        // Format the date string (i.e. "Mar 3, 1984")
-        String formattedDate = formatDate(dateObject);
-        // Display the date of the current news in that TextView
-        dateView.setText(formattedDate);
-
-        // Find the TextView with view ID time
-        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
-        // Format the time string (i.e. "4:30PM")
-        String formattedTime = formatTime(dateObject);
-        // Display the time of the current news in that TextView
-        timeView.setText(formattedTime);
+//
+//        // Create a new Date object from the time in milliseconds of the news
+//        Date dateObject = new Date(currentNews.getmTimeInMilliseconds());
+//        //Title titleObject = new Title(currentNews.getmTitle());
+//
+//        // Find the TextView with view ID date
+//        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+//        // Format the date string (i.e. "Mar 3, 1984")
+//        String formattedDate = formatDate(dateObject);
+//        // Display the date of the current news in that TextView
+//        dateView.setText(formattedDate);
+//
+//        // Find the TextView with view ID time
+//        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
+//        // Format the time string (i.e. "4:30PM")
+//        String formattedTime = formatTime(dateObject);
+//        // Display the time of the current news in that TextView
+//        timeView.setText(formattedTime);
 
 //        // Find the TextView with view ID author
 //        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
@@ -100,11 +114,26 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
 
 
-
-        // Return the list item view that is now showing the appropriate data
-        return listItemView;
-    }
-
+//
+//        // Return the list item view that is now showing the appropriate data
+//        return listItemView;
+//    }
+//    /**
+//     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
+//     */
+//    private String formatDate(Date dateObject) {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+//        return dateFormat.format(dateObject);
+//    }
+//
+//    /**
+//     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
+//     */
+//    private String formatTime(Date dateObject) {
+//        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+//        return timeFormat.format(dateObject);
+//    }
+//}
     /**
      * Return the formatted title string (i.e. "Once upon a time...") from a Title object.
      */
@@ -121,19 +150,4 @@ public class NewsAdapter extends ArrayAdapter<News> {
 //        return authorFormat.format(authorObject);
 //    }
 
-    /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
-     */
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
 
-    /**
-     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
-     */
-    private String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
-        return timeFormat.format(dateObject);
-    }
-}

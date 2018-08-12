@@ -92,18 +92,22 @@ public class News {
     private String mSection;
 
 
-    public News(String mLocation, long mTimeInMilliseconds, String mUrl) {
-        // this.mLocation = mLocation;
-        this.mAuthor = mAuthor;
-        this.mTimeInMilliseconds = mTimeInMilliseconds;
-        //this.mWebPublicationDate = mWebPublicationDate;
-        this.mUrl = mUrl;
-        this.mSection = mSection;
-        this.mTitle = mTitle;
+//    public News(String mLocation, long mTimeInMilliseconds, String mUrl) {
+//        // this.mLocation = mLocation;
+//        this.mAuthor = mAuthor;
+//        this.mTimeInMilliseconds = mTimeInMilliseconds;
+//        //this.mWebPublicationDate = mWebPublicationDate;
+//        this.mUrl = mUrl;
+//        this.mSection = mSection;
+//        this.mTitle = mTitle;
+//    }
+
+    public News(String title, String sectionName, String date, String url, String author) {
+        this.mTitle = title;
+        this.mSection = sectionName;
+        this.mUrl= url;
     }
 
-    public News(String title, String sectionName, String date, String url, Object author) {
-    }
 
 
 //    //public String get() {

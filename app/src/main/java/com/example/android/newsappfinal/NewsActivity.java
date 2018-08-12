@@ -45,7 +45,6 @@ public class NewsActivity extends AppCompatActivity
     /** Adapter for the list of news */
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
-    private AdapterView newsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,17 +135,20 @@ public class NewsActivity extends AppCompatActivity
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
-
-        // Set empty state text to display "No earthquakes found."
-        mEmptyStateTextView.setText(R.string.no_news);
-        // Clear the adapter of previous news data
-        mAdapter.clear();
-
-        // If there is a valid list of {@link News}s, then add them to the adapter's
-        // data set. This will trigger the ListView to update.
         if (news != null && !news.isEmpty()) {
+            // If there is a valid list of {@link News}s, then add them to the adapter's
+            // data set. This will trigger the ListView to update.
             mAdapter.addAll(news);
+            Log.i(LOG_TAG,"TEST: onLoadFinished() is called ...news is not null");
+        }else {
+            // Set empty state text to display "No news found."
+            mEmptyStateTextView.setText(R.string.no_news);
+            mEmptyStateTextView.setVisibility(View.VISIBLE);
+            Log.i(LOG_TAG,"TEST: onLoadFinished() is called ...news is null");
+            // Clear the adapter of previous news data
+            mAdapter.clear();
         }
+
     }
 
     @Override

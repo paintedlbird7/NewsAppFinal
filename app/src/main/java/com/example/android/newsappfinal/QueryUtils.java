@@ -142,6 +142,7 @@ public final class QueryUtils {
      * parsing the given JSON response.
      */
     private static List<News> extractFeatureFromJson(String newsJSON) {
+        List<News> newsList = new ArrayList<>();
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
@@ -155,24 +156,18 @@ public final class QueryUtils {
         try {
 
 
-
-
-
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
-
 
             //Create the JSONObject with the key "response"
             JSONObject responseJSONObject = baseJsonResponse.getJSONObject("response");
 
             // Extract the JSONArray associated with the key called "results",
             // which represents a list of news stories
-            JSONArray newsArray = baseJsonResponse.getJSONArray("results");
+            JSONArray newsArray = responseJSONObject.getJSONArray("results");
 
             // For each news in the newsArray, create an {@link News} object
             for (int i = 0; i < newsArray.length(); i++) {
-
-
 
                 // Get a single news at position i within the list of earthquakes
                 JSONObject currentNews = newsArray.getJSONObject(i);
@@ -185,23 +180,6 @@ public final class QueryUtils {
 
                 // Extract the value for the key called "webPublicationDate"
                 String date = currentNews.getString("webPublicationDate");
-
-
-
-
-
-                // For a given news, extract the JSONObject associated with the
-                // key called "properties", which represents a list of all properties
-                // for that news.
-                JSONObject properties = currentNews.getJSONObject("properties");
-
-
-
-                // Extract the value for the key called "place"
-                String location = properties.getString("place");
-
-                // Extract the value for the key called "time"
-                long time = properties.getLong("time");
 
                 // Extract the value for the key called "url"
                 String url = currentNews.getString("webUrl");
@@ -217,21 +195,21 @@ public final class QueryUtils {
                     authorName = contributorTag.getString("webTitle");
                 }
 
-
-
-
                 // Extract the value for the key called "url"
                 //String url = properties.getString("url");
 
                 // Create a new NewsStory object with the title, section name, date,
                 // and url from the JSON response.
-                News news = new News(title, sectionName, date, url, author);
+                News news = new News(title, sectionName, date, url, (String) author);
+
+
                 // Create a new {@link News} object with the magnitude, location, time,
                 // and url from the JSON response.
                 //News news = new News(location, time, url);
 
                 // Add the new {@link News} to the list of earthquakes.
-                news.add(news);
+                newsList.add(news);
+                return newsList;
             }
 
 
