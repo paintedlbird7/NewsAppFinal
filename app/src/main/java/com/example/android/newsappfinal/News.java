@@ -78,7 +78,7 @@ public class News {
 
 
     /** Time of the article */
-    private long mTimeInMilliseconds;
+    //private String mDate;
     //private long mWebPublicationDate;
 
 
@@ -89,26 +89,27 @@ public class News {
     private String mSection;
 
 
-    public News(String title, String sectionName, String date, String url, String authorName) {
+    public News(String title, String sectionName, String url, String authorName) {
         this.mTitle = title;
         this.mSection = sectionName;
         this.mAuthor = authorName;
         this.mUrl= url;
+        //this.mDate = date;
     }
 
-        public String getmTitle() {
+    public String getmTitle() {
         return mTitle;
     }
 
-       public long getmTimeInMilliseconds() {
-        return mTimeInMilliseconds;
-    }
+    //public String getmDate() {
+//        return mDate;
+//    }
 
     public String getmAuthor() {
         return mAuthor;
     }
 
-    //public Long getmWebPublicationDate() { return mWebPublicationDate; }
+    //public String getmDate() { return mDate; }
 
     public String getmSection() {
         return mSection;

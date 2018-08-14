@@ -41,6 +41,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         currentNews = news; // assign it here
     }
 
+
     /**
      * Returns a list item view that displays information about the news at the given position
      * in the list of articles.
@@ -69,6 +70,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
             // Find the TextView with view ID location offset
             TextView articleSection = (TextView) listItemView.findViewById(R.id.section);
             articleSection.setText(news.getmSection());
+
+//            // Find the TextView with view ID location offset
+//            TextView articleDate = (TextView) listItemView.findViewById(R.id.date);
+//            articleDate.setText(news.getmDate());
         }
         //TODO: do the same with rest of TextViews after you get the correct values
 

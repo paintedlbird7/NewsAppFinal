@@ -54,15 +54,15 @@
 
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="end"
             android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            tools:text="3:00 PM" />
+            android:textSize="17sp"
+            tools:text="Date Published" />
 
         <TextView
             android:id="@+id/section"

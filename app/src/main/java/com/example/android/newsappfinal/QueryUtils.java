@@ -168,6 +168,7 @@ public final class QueryUtils {
             // For each news in the newsArray, create an {@link News} object
             for (int i = 0; i < newsArray.length(); i++) {
 
+
                 // Get a single news at position i within the list of earthquakes
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
@@ -178,7 +179,7 @@ public final class QueryUtils {
                 String sectionName = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "webPublicationDate"
-                String date = currentNews.getString("webPublicationDate");
+                //String date = currentNews.getString("authorDate");
 
                 // Extract the value for the key called "url"
                 String url = currentNews.getString("webUrl");
@@ -196,7 +197,7 @@ public final class QueryUtils {
 
                 // Create a new NewsStory object with the title, section name, date,
                 // and url from the JSON response.
-                News news = new News(title, (String) sectionName, date, url, (String) authorName);
+                News news = new News(title, (String) sectionName, url, (String) authorName);
 
 
                 // Add the new {@link News} to the list of earthquakes.
