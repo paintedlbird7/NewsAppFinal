@@ -26,13 +26,13 @@ public class NewsActivity extends AppCompatActivity
 
     /** URL for news data from the Guardian */
     private static final String GUARDIAN_REQUEST_URL =
-//    "https://content.guardianapis.com/search?from-date=2018-06-01" +
-//            "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-//            "contributor&page-size=10";
-//
     "https://content.guardianapis.com/search?from-date=2018-06-01" +
-            "&to-date=2018-08-01&q=Android&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
+            "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
             "contributor&page-size=10";
+
+//    "https://content.guardianapis.com/search?from-date=2011-01-01" +
+//            "&to-date=2018-08-01&q=Immigration&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
+//            "contributor&page-size=10";
 
 
 
@@ -112,12 +112,6 @@ public class NewsActivity extends AppCompatActivity
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
-
-
-
-
-
-
 
 
 

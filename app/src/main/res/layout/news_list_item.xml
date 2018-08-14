@@ -51,8 +51,21 @@
             android:text="Read More >"
             android:layout_alignParentRight="true" />
 
+
+
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="end"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            tools:text="3:00 PM" />
+
+        <TextView
+            android:id="@+id/section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -61,7 +74,11 @@
             android:layout_marginStart="11dp"
             android:textColor="@color/colorAccent"
             android:textSize="17sp"
-            tools:text="Mar 6, 2010" />
+            tools:text="Section Name"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="11dp" />
+
+
 
         <!--<TextView-->
             <!--android:id="@+id/author"-->
@@ -81,16 +98,7 @@
             <!--android:textSize="17sp"-->
             <!--tools:text="Once upon a time..." />-->
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="end"
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            tools:text="3:00 PM" />
+
 
 
 

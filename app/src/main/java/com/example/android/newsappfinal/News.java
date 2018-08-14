@@ -73,10 +73,7 @@ package com.example.android.newsappfinal;
 public class News {
 
 
-    /** Location of the article */
-    //private String mLocation;
-    private String mAuthor;
-
+    private final String mAuthor;
     private String mTitle;
 
 
@@ -92,31 +89,12 @@ public class News {
     private String mSection;
 
 
-//    public News(String mLocation, long mTimeInMilliseconds, String mUrl) {
-//        // this.mLocation = mLocation;
-//        this.mAuthor = mAuthor;
-//        this.mTimeInMilliseconds = mTimeInMilliseconds;
-//        //this.mWebPublicationDate = mWebPublicationDate;
-//        this.mUrl = mUrl;
-//        this.mSection = mSection;
-//        this.mTitle = mTitle;
-//    }
-
-    public News(String title, String sectionName, String date, String url, String author) {
+    public News(String title, String sectionName, String date, String url, String authorName) {
         this.mTitle = title;
         this.mSection = sectionName;
+        this.mAuthor = authorName;
         this.mUrl= url;
     }
-
-
-
-//    //public String get() {
-//        return mLocation;
-//    }
-//
-//    public String getmLocation() {
-//        return mLocation;
-//    }
 
         public String getmTitle() {
         return mTitle;
@@ -133,7 +111,7 @@ public class News {
     //public Long getmWebPublicationDate() { return mWebPublicationDate; }
 
     public String getmSection() {
-        return getmSection();
+        return mSection;
     }
 
 

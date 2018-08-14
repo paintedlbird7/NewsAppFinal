@@ -28,7 +28,6 @@ public final class QueryUtils {
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
     private static List<News> news;
     private static String webTitle;
-    private static Object author;
 
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
@@ -195,22 +194,17 @@ public final class QueryUtils {
                     authorName = contributorTag.getString("webTitle");
                 }
 
-                // Extract the value for the key called "url"
-                //String url = properties.getString("url");
-
                 // Create a new NewsStory object with the title, section name, date,
                 // and url from the JSON response.
-                News news = new News(title, sectionName, date, url, (String) author);
+                News news = new News(title, (String) sectionName, date, url, (String) authorName);
 
-
-                // Create a new {@link News} object with the magnitude, location, time,
-                // and url from the JSON response.
-                //News news = new News(location, time, url);
 
                 // Add the new {@link News} to the list of earthquakes.
                 newsList.add(news);
-                return newsList;
             }
+
+            return newsList;
+
 
 
 
