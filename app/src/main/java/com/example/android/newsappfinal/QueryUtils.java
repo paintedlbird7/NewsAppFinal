@@ -172,6 +172,9 @@ public final class QueryUtils {
                 // Get a single news at position i within the list of earthquakes
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
+                // Extract the value for the key called "time"
+                long time = currentNews.getLong("time");
+
                 // Extract the value for the key called "webTitle"
                 String title = currentNews.getString("webTitle");
 
@@ -197,7 +200,7 @@ public final class QueryUtils {
 
                 // Create a new NewsStory object with the title, section name, date,
                 // and url from the JSON response.
-                News news = new News(title, (String) sectionName, url, (String) authorName);
+                News news = new News(title, (String) sectionName, url, (String) authorName, time);
 
 
                 // Add the new {@link News} to the list of earthquakes.

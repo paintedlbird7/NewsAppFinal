@@ -52,7 +52,6 @@
             android:layout_alignParentRight="true" />
 
 
-
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -60,9 +59,21 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="end"
+            android:layout_marginTop="21dp"
             android:textColor="@color/colorAccent"
             android:textSize="17sp"
             tools:text="Date Published" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="end"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            tools:text="3:00 PM" />
 
         <TextView
             android:id="@+id/section"
