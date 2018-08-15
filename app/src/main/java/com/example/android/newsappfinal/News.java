@@ -6,15 +6,16 @@ package com.example.android.newsappfinal;
 public class News {
 
     /** Time of the publication */
-    private long mTimeInMilliseconds;
+    //private long mTimeInMilliseconds;
 
     private final String mAuthor;
+    private final Object mDate;
     private String mTitle;
 
 
     /** Time of the article */
     //private String mDate;
-    //private long mWebPublicationDate;
+    private long mWebPublicationDate;
 
 
     /** Website URL of the article */
@@ -24,32 +25,28 @@ public class News {
     private String mSection;
 
 
-    public News(String title, String sectionName, String url, String authorName, long mTimeInMilliseconds) {
-        this.mTimeInMilliseconds = mTimeInMilliseconds;
+    public News(String date, String title, String sectionName, String url, String authorName) {
+        //this.mTimeInMilliseconds = mTimeInMilliseconds;
         this.mTitle = title;
         this.mSection = sectionName;
         this.mAuthor = authorName;
         this.mUrl= url;
-        //this.mDate = date;
+        this.mDate = date;
     }
 
-    public long getmTimeInMilliseconds() {
-        return mTimeInMilliseconds;
-    }
+    //public long getmTimeInMilliseconds() {
+//        return mTimeInMilliseconds;
+//    }
 
     public String getmTitle() {
         return mTitle;
     }
 
-    //public String getmDate() {
-//        return mDate;
-//    }
-
     public String getmAuthor() {
         return mAuthor;
     }
 
-    //public String getmDate() { return mDate; }
+    public String getmDate() { return (String) mDate; }
 
     public String getmSection() {
         return mSection;

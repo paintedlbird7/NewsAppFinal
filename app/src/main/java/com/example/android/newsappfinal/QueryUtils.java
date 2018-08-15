@@ -24,6 +24,8 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public final class QueryUtils {
 
+
+
     /** Tag for the log messages */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
     private static List<News> news;
@@ -147,6 +149,8 @@ public final class QueryUtils {
             return null;
         }
 
+
+
         // Create an empty ArrayList that we can start adding articles to
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
@@ -173,7 +177,10 @@ public final class QueryUtils {
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
                 // Extract the value for the key called "time"
-                long time = currentNews.getLong("time");
+                //long time = currentNews.getLong("time");
+
+                // Extract the value for the key called "webPublicationDate"
+                String date = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "webTitle"
                 String title = currentNews.getString("webTitle");
@@ -181,7 +188,6 @@ public final class QueryUtils {
                 // Extract the value for the key called "sectionName"
                 String sectionName = currentNews.getString("sectionName");
 
-                // Extract the value for the key called "webPublicationDate"
                 //String date = currentNews.getString("authorDate");
 
                 // Extract the value for the key called "url"
@@ -200,7 +206,7 @@ public final class QueryUtils {
 
                 // Create a new NewsStory object with the title, section name, date,
                 // and url from the JSON response.
-                News news = new News(title, (String) sectionName, url, (String) authorName, time);
+                News news = new News(date, title, (String) sectionName, url, (String) authorName);
 
 
                 // Add the new {@link News} to the list of earthquakes.
