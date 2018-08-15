@@ -24,17 +24,13 @@ public class NewsActivity extends AppCompatActivity
 
     private static final String LOG_TAG = NewsActivity.class.getName();
 
-    /** URL for news data from the Guardian */
+    /**
+     * URL for news data from the Guardian
+     */
     private static final String GUARDIAN_REQUEST_URL =
-    "https://content.guardianapis.com/search?from-date=2018-06-01" +
-            "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-            "contributor&page-size=10";
-
-//    "https://content.guardianapis.com/search?from-date=2011-01-01" +
-//            "&to-date=2018-08-01&q=Immigration&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
-//            "contributor&page-size=10";
-
-
+            "https://content.guardianapis.com/search?from-date=2018-06-01" +
+                    "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+                    "contributor&page-size=10";
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -42,13 +38,15 @@ public class NewsActivity extends AppCompatActivity
      */
     private static final int NEWS_LOADER_ID = 1;
 
-    /** Adapter for the list of news */
+    /**
+     * Adapter for the list of news
+     */
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(LOG_TAG,"TEST: News Activity onCreate() called");
+        Log.i(LOG_TAG, "TEST: News Activity onCreate() called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_activity);
 
@@ -85,7 +83,6 @@ public class NewsActivity extends AppCompatActivity
         });
 
 
-
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -114,17 +111,16 @@ public class NewsActivity extends AppCompatActivity
     }
 
 
-
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
-        Log.i(LOG_TAG,"TEST: onCreateLoader() is called ...");
+        Log.i(LOG_TAG, "TEST: onCreateLoader() is called ...");
         return new NewsLoader(this, GUARDIAN_REQUEST_URL);
     }
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> news) {
-        Log.i(LOG_TAG,"TEST: onLoadFinished() is called ...");
+        Log.i(LOG_TAG, "TEST: onLoadFinished() is called ...");
 
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
@@ -133,24 +129,21 @@ public class NewsActivity extends AppCompatActivity
             // If there is a valid list of {@link News}s, then add them to the adapter's
             // data set. This will trigger the ListView to update.
             mAdapter.addAll(news);
-            Log.i(LOG_TAG,"TEST: onLoadFinished() is called ...news is not null");
-        }else {
+            Log.i(LOG_TAG, "TEST: onLoadFinished() is called ...news is not null");
+        } else {
             // Set empty state text to display "No news found."
             mEmptyStateTextView.setText(R.string.no_news);
             mEmptyStateTextView.setVisibility(View.VISIBLE);
-            Log.i(LOG_TAG,"TEST: onLoadFinished() is called ...news is null");
+            Log.i(LOG_TAG, "TEST: onLoadFinished() is called ...news is null");
             // Clear the adapter of previous news data
             mAdapter.clear();
         }
-
     }
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
-        Log.i(LOG_TAG,"TEST: onLoadReset() is called ...");
+        Log.i(LOG_TAG, "TEST: onLoadReset() is called ...");
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-
-
 }

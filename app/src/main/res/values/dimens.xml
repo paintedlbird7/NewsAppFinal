@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dividerHeight_0">0dp</dimen>
+    <dimen name="width_320">320dp</dimen>
+    <dimen name="height_320">320dp</dimen>
+    <dimen name="textSize18">18dp</dimen>
+    <dimen name="marginBottom">8dp</dimen>
+    <dimen name="marginTop">8dp</dimen>
+    <dimen name="padding">6dp</dimen>
+    <dimen name="textSize_18">18sp</dimen>
+    <dimen name="marginTop_4">4dp</dimen>
+    <dimen name="marginLeft_4">4dp</dimen>
+    <dimen name="textSize_22">22sp</dimen>
+    <dimen name="marginLeft_8">8dp</dimen>
+    <dimen name="marginRight_8">8dp</dimen>
+    <dimen name="marginTop21">21dp</dimen>
+    <dimen name="textSize17">17sp</dimen>
+    <dimen name="layout_width">64dp</dimen>
+    <dimen name="textColor">12sp</dimen>
+    <dimen name="marginStart">11dp</dimen>
+    <dimen name="textSize_17">17sp</dimen>
+    <dimen name="marginLeft">11dp</dimen>
+    <dimen name="textSize_181">18sp</dimen>
+</resources>

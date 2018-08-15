@@ -25,8 +25,9 @@ import javax.net.ssl.HttpsURLConnection;
 public final class QueryUtils {
 
 
-
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
     private static List<News> news;
     private static String webTitle;
@@ -43,7 +44,7 @@ public final class QueryUtils {
      * Query the news dataset and return a list of {@link News} objects.
      */
     public static List<News> fetchNewsData(String requestUrl) {
-        Log.i(LOG_TAG,"TEST: fetchNewsData() is called ...");
+        Log.i(LOG_TAG, "TEST: fetchNewsData() is called ...");
 
         // Create URL object
         URL url = createUrl(requestUrl);
@@ -150,7 +151,6 @@ public final class QueryUtils {
         }
 
 
-
         // Create an empty ArrayList that we can start adding articles to
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
@@ -209,13 +209,11 @@ public final class QueryUtils {
                 News news = new News(date, title, (String) sectionName, url, (String) authorName);
 
 
-                // Add the new {@link News} to the list of earthquakes.
+                // Add the new {@link News} to the list of articles.
                 newsList.add(news);
             }
 
             return newsList;
-
-
 
 
         } catch (JSONException e) {
