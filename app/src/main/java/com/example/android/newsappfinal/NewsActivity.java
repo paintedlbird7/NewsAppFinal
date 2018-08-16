@@ -106,7 +106,7 @@ public class NewsActivity extends AppCompatActivity
             loadingIndicator.setVisibility(View.GONE);
 
             // Update empty state with no connection error message
-            mEmptyStateTextView.setText(R.string.no_internet_connection);
+            mEmptyStateTextView.setText(R.string.no_internet_connection); //TODO string is empty , add a helpful message to it
         }
     }
 
@@ -138,6 +138,7 @@ public class NewsActivity extends AppCompatActivity
             // Clear the adapter of previous news data
             mAdapter.clear();
         }
+
     }
 
     @Override

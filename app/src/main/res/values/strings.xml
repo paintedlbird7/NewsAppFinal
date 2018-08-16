@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NewsAppFinal</string>
     <string name="near_the" />
-    <string name="no_internet_connection" />
+    <string name="no_internet_connection">No internet connection, please check connection, refresh and try again</string>
     <string name="no_news" />
     <string name="no_network_available">no network available</string>
     <string name="please_check_network_settings_and_refresh">Please check network settings and refresh</string>

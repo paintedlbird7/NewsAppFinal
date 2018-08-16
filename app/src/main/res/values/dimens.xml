@@ -3,7 +3,7 @@
     <dimen name="dividerHeight_0">0dp</dimen>
     <dimen name="width_320">320dp</dimen>
     <dimen name="height_320">320dp</dimen>
-    <dimen name="textSize18">18dp</dimen>
+    <dimen name="textSize18">18sp</dimen>
     <dimen name="marginBottom">8dp</dimen>
     <dimen name="marginTop">8dp</dimen>
     <dimen name="padding">6dp</dimen>
