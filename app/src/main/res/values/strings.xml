@@ -2,7 +2,7 @@
     <string name="app_name">NewsAppFinal</string>
     <string name="near_the" />
     <string name="no_internet_connection">No internet connection, please check connection, refresh and try again</string>
-    <string name="no_news" />
+    <string name="no_news">No data to display</string>
     <string name="no_network_available">no network available</string>
     <string name="please_check_network_settings_and_refresh">Please check network settings and refresh</string>
     <string name="text_Ipsum_Loren">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
