@@ -74,7 +74,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
             TextView articleDate = (TextView) listItemView.findViewById(R.id.date);
             articleDate.setText(news.getmDate());
         }
-        //TODO: do the same with rest of TextViews after you get the correct values
 
         return listItemView;
     }

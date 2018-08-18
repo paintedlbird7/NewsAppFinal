@@ -11,6 +11,7 @@
     <string name="text_time">3:00 PM</string>
     <string name="text_section">Section Name</string>
 
+
     <!-- Preference Settings -->
     <string name="settings_menu_item">Settings</string>
     <string name="settings_title">News Settings</string>
@@ -25,13 +26,13 @@
 
 
     <!-- -->
-     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_magnitude_value</string>
-     <string name="settings_min_magnitude_label">Minimum Magnitude</string>
-     <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
-    <string name="settings_min_magnitude_default" translatable="false">0</string>
+     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_article_value</string>
+     <string name="settings_min_article_label">Minimum Number of Articles</string>
+     <string name="settings_min_article_key" translatable="false">min_articles</string>
+    <string name="settings_min_article_default" translatable="false">0</string>
 
      Label for order-by magnitude option [CHAR LIMIT=20]
-     <string name="settings_order_by_magnitude_label">Magnitude</string>
-     <string name="settings_order_by_magnitude_value" translatable="false">magnitude</string>
+     <string name="settings_order_by_article_label">Articles</string>
+     <string name="settings_order_by_article_value" translatable="false">article</string>
 
 </resources>

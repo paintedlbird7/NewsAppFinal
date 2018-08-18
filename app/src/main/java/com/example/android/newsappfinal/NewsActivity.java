@@ -33,15 +33,48 @@ public class NewsActivity extends AppCompatActivity
      */
     private static final String GUARDIAN_REQUEST_URL =
 
-           // "https://earthquake.usgs.gov/fdsnws/event/1/query";
 
-      "https://content.guardianapis.com/search?from-date=2018-06-01" +
-              "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-              "contributor&page-size=10";
-//
+
+// another key
+// Android Guardian
 //            "https://content.guardianapis.com/search?from-date=2018-06-01" +
-//                    "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+//                    "&to-date=2018-08-01&q=Android&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
 //                    "contributor&page-size=10";
+
+            // what it first had
+            // USGS min earthquakes
+            // "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
+
+            // what it has after preferences
+            // "https://earthquake.usgs.gov/fdsnws/event/1/query";
+
+
+//      "https://content.guardianapis.com/search?from-date=2018-06-01" +
+//              "&to-date=2018-18-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+//              "contributor&page-size=10";
+
+    // ---> gives json on website
+     //https://content.guardianapis.com/search?/&q=Andriod&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658
+    // after preferences:
+    "https://content.guardianapis.com/search?/&q=Andriod/event/1/query";
+
+
+
+
+
+
+
+    //full guardian https://content.guardianapis.com/search?api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658
+
+    //Android guardian
+    // what it first had
+    //            "https://content.guardianapis.com/search?from-date=2018-06-01" +
+    //                    "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+    //                    "contributor&page-size=10";
+
+    // what it has after preferences
+
+
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -54,6 +87,7 @@ public class NewsActivity extends AppCompatActivity
      */
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
+    private String minArticle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +151,7 @@ public class NewsActivity extends AppCompatActivity
             loadingIndicator.setVisibility(View.GONE);
 
             // Update empty state with no connection error message
-            mEmptyStateTextView.setText(R.string.no_internet_connection); //TODO string is empty , add a helpful message to it
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
 
@@ -126,9 +160,9 @@ public class NewsActivity extends AppCompatActivity
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-//        String minMagnitude = sharedPrefs.getString(
-//                getString(R.string.settings_min_magnitude_key),
-//                getString(R.string.settings_min_magnitude_default));
+        String minArticle = sharedPrefs.getString(
+                getString(R.string.settings_min_article_key),
+                getString(R.string.settings_min_article_default));
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -139,7 +173,7 @@ public class NewsActivity extends AppCompatActivity
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("limit", "10");
-        //uriBuilder.appendQueryParameter("minmag", minMagnitude);
+        uriBuilder.appendQueryParameter("minart", minArticle);
         uriBuilder.appendQueryParameter("orderby", "time");
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
