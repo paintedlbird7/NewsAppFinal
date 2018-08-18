@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="article_title" type="id" />
+    <item name="article_author" type="id" />
+    <item name="date_textview" type="id" />
+</resources>
