@@ -171,7 +171,7 @@ public class NewsActivity extends AppCompatActivity
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
+        uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("limit", "10");
         uriBuilder.appendQueryParameter("minart", minArticle);
         uriBuilder.appendQueryParameter("orderby", "time");
