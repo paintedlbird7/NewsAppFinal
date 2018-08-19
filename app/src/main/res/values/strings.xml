@@ -34,5 +34,8 @@
      Label for order-by magnitude option [CHAR LIMIT=20]
      <string name="settings_order_by_article_label">Articles</string>
      <string name="settings_order_by_article_value" translatable="false">article</string>
+    <string name="settings_order_by_keyword_value">keyword</string>
+    <string name="settings_order_by_keyword_key">keyword</string>
+    <string name="settings_order_by_keyword_label">Search by Keyword</string>
 
 </resources>

@@ -56,7 +56,7 @@ public class NewsActivity extends AppCompatActivity
     // ---> gives json on website
      //https://content.guardianapis.com/search?/&q=Andriod&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658
     // after preferences:
-    "https://content.guardianapis.com/search?/&q=Andriod/event/1/query";
+    //"https://content.guardianapis.com/search?/&q=Andriod/event/1/query";
 
 
 
@@ -68,9 +68,9 @@ public class NewsActivity extends AppCompatActivity
 
     //Android guardian
     // what it first had
-    //            "https://content.guardianapis.com/search?from-date=2018-06-01" +
-    //                    "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-    //                    "contributor&page-size=10";
+                "https://content.guardianapis.com/search?from-date=2018-06-01" +
+                        "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+                        "contributor&page-size=10";
 
     // what it has after preferences
 
@@ -166,16 +166,30 @@ public class NewsActivity extends AppCompatActivity
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
+                getString(R.string.settings_order_by_default));
+
+
+        String defaultkeyword = sharedPrefs.getString(
+             getString(R.string.settings_order_by_key),
+            getString(R.string.settings_order_by_keyword_value)
         );
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
+
         uriBuilder.appendQueryParameter("format", "json");
-        uriBuilder.appendQueryParameter("limit", "10");
+        uriBuilder.appendQueryParameter("page-size", "10");
         uriBuilder.appendQueryParameter("minart", minArticle);
         uriBuilder.appendQueryParameter("orderby", "time");
         uriBuilder.appendQueryParameter("orderby", orderBy);
+
+        uriBuilder.appendQueryParameter("q", defaultkeyword);
+
+
+//        uriBuilder.appendQueryParameter("orderby", orderBy);
+//        uriBuilder.appendQueryParameter("orderby", orderBy);
+//        uriBuilder.appendQueryParameter("orderby", orderBy);
+
 
 
         return new NewsLoader(this, uriBuilder.toString());
