@@ -179,7 +179,7 @@ public class NewsActivity extends AppCompatActivity
 
         uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("page-size", "10");
-        uriBuilder.appendQueryParameter("minart", minArticle);
+        //uriBuilder.appendQueryParameter("minart", minArticle);
         uriBuilder.appendQueryParameter("orderby", "time");
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
