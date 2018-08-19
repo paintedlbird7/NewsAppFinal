@@ -33,48 +33,9 @@ public class NewsActivity extends AppCompatActivity
      */
     private static final String GUARDIAN_REQUEST_URL =
 
-
-
-// another key
-// Android Guardian
-//            "https://content.guardianapis.com/search?from-date=2018-06-01" +
-//                    "&to-date=2018-08-01&q=Android&api-key=9722bfef-08bf-4706-b3f0-a914a1dc5339&show-tags=" +
-//                    "contributor&page-size=10";
-
-            // what it first had
-            // USGS min earthquakes
-            // "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
-
-            // what it has after preferences
-            // "https://earthquake.usgs.gov/fdsnws/event/1/query";
-
-
-//      "https://content.guardianapis.com/search?from-date=2018-06-01" +
-//              "&to-date=2018-18-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-//              "contributor&page-size=10";
-
-    // ---> gives json on website
-     //https://content.guardianapis.com/search?/&q=Andriod&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658
-    // after preferences:
-    //"https://content.guardianapis.com/search?/&q=Andriod/event/1/query";
-
-
-
-
-
-
-
-    //full guardian https://content.guardianapis.com/search?api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658
-
-    //Android guardian
-    // what it first had
-                "https://content.guardianapis.com/search?from-date=2018-06-01" +
-                        "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
-                        "contributor&page-size=10";
-
-    // what it has after preferences
-
-
+            "https://content.guardianapis.com/search?from-date=2018-06-01" +
+                    "&to-date=2018-08-01&q=Android&api-key=7ee07fcd-fd06-4ee3-85a3-bdaa67850658&show-tags=" +
+                    "contributor&page-size=10";
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -170,8 +131,8 @@ public class NewsActivity extends AppCompatActivity
 
 
         String defaultkeyword = sharedPrefs.getString(
-             getString(R.string.settings_order_by_key),
-            getString(R.string.settings_order_by_keyword_value)
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_keyword_value)
         );
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
@@ -179,18 +140,11 @@ public class NewsActivity extends AppCompatActivity
 
         uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("page-size", "10");
-        //uriBuilder.appendQueryParameter("minart", minArticle);
+        uriBuilder.appendQueryParameter("minart", minArticle);
         uriBuilder.appendQueryParameter("orderby", "time");
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
         uriBuilder.appendQueryParameter("q", defaultkeyword);
-
-
-//        uriBuilder.appendQueryParameter("orderby", orderBy);
-//        uriBuilder.appendQueryParameter("orderby", orderBy);
-//        uriBuilder.appendQueryParameter("orderby", orderBy);
-
-
 
         return new NewsLoader(this, uriBuilder.toString());
 
@@ -231,6 +185,7 @@ public class NewsActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

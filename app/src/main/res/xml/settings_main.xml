@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/settings_title"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:title="@string/settings_title">
 
-    <!--<EditTextPreference-->
-        <!--android:defaultValue="@string/settings_min_article_default"-->
-        <!--android:inputType="numberDecimal"-->
-        <!--android:key="@string/settings_min_article_key"-->
-        <!--android:selectAllOnFocus="true"-->
-        <!--android:title="@string/settings_min_article_label"-->
-        <!--/>-->
+    <EditTextPreference
+        android:defaultValue="@string/settings_min_article_default"
+        android:inputType="numberDecimal"
+        android:key="@string/settings_min_article_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_min_article_label" />
 
     <EditTextPreference
         android:defaultValue="@string/settings_order_by_keyword_value"
-        android:inputType=""
+        android:inputType="textNoSuggestions"
         android:key="@string/settings_order_by_keyword_key"
         android:selectAllOnFocus="true"
-        android:title="@string/settings_order_by_keyword_label"
-        />
+        android:title="@string/settings_order_by_keyword_label" />
 
     <ListPreference
         android:defaultValue="@string/settings_order_by_default"

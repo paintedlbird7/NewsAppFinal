@@ -26,14 +26,14 @@
 
 
     <!-- -->
-     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_article_value</string>
-     <string name="settings_min_article_label">Minimum Number of Articles</string>
-     <string name="settings_min_article_key" translatable="false">min_articles</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_article_value</string>
+    <string name="settings_min_article_label">Minimum Number of Articles</string>
+    <string name="settings_min_article_key" translatable="false">min_articles</string>
     <string name="settings_min_article_default" translatable="false">0</string>
 
-     Label for order-by magnitude option [CHAR LIMIT=20]
-     <string name="settings_order_by_article_label">Articles</string>
-     <string name="settings_order_by_article_value" translatable="false">article</string>
+    Label for order-by magnitude option [CHAR LIMIT=20]
+    <string name="settings_order_by_article_label">Articles</string>
+    <string name="settings_order_by_article_value" translatable="false">article</string>
     <string name="settings_order_by_keyword_value">keyword</string>
     <string name="settings_order_by_keyword_key">keyword</string>
     <string name="settings_order_by_keyword_label">Search by Keyword</string>
