@@ -14,7 +14,7 @@ public class News {
     /**
      * Time publication of the article
      */
-    private long mWebPublicationDate;
+    //private long mWebPublicationDate;
 
 
     /**

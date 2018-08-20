@@ -121,9 +121,9 @@ public class NewsActivity extends AppCompatActivity
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String minArticle = sharedPrefs.getString(
-                getString(R.string.settings_min_article_key),
-                getString(R.string.settings_min_article_default));
+//        String minArticle = sharedPrefs.getString(
+//                getString(R.string.settings_min_article_key),
+//                getString(R.string.settings_min_article_default));
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -140,11 +140,11 @@ public class NewsActivity extends AppCompatActivity
 
         uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("page-size", "10");
-        uriBuilder.appendQueryParameter("minart", minArticle);
-        uriBuilder.appendQueryParameter("orderby", "time");
-        uriBuilder.appendQueryParameter("orderby", orderBy);
+        //uriBuilder.appendQueryParameter("minart", minArticle);
+        //uriBuilder.appendQueryParameter("order-by", "time");
+        uriBuilder.appendQueryParameter("order-by", "newest");
 
-        uriBuilder.appendQueryParameter("q", defaultkeyword);
+        uriBuilder.appendQueryParameter("q", "article");
 
         return new NewsLoader(this, uriBuilder.toString());
 
