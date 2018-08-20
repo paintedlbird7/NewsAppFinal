@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:title="@string/settings_title">
 
-    <EditTextPreference
-        android:defaultValue="@string/settings_min_article_default"
-        android:inputType="numberDecimal"
-        android:key="@string/settings_min_article_key"
-        android:selectAllOnFocus="true"
-        android:title="@string/settings_min_article_label" />
+    <!--<EditTextPreference-->
+        <!--android:defaultValue="@string/settings_min_article_default"-->
+        <!--android:inputType="numberDecimal"-->
+        <!--android:key="@string/settings_min_article_key"-->
+        <!--android:selectAllOnFocus="true"-->
+        <!--android:title="@string/settings_min_article_label" />-->
 
     <EditTextPreference
         android:defaultValue="@string/settings_order_by_keyword_value"

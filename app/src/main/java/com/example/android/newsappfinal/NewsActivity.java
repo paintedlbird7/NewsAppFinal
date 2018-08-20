@@ -131,7 +131,7 @@ public class NewsActivity extends AppCompatActivity
 
 
         String defaultkeyword = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_keyword_key),
                 getString(R.string.settings_order_by_keyword_value)
         );
 
