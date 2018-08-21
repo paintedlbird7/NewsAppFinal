@@ -48,7 +48,6 @@ public class NewsActivity extends AppCompatActivity
      */
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
-    private String minArticle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,9 +120,6 @@ public class NewsActivity extends AppCompatActivity
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-//        String minArticle = sharedPrefs.getString(
-//                getString(R.string.settings_min_article_key),
-//                getString(R.string.settings_min_article_default));
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -134,7 +130,6 @@ public class NewsActivity extends AppCompatActivity
                 getString(R.string.settings_order_by_keyword_key),
                 getString(R.string.settings_order_by_default)
         );
-
 
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);

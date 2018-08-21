@@ -10,13 +10,6 @@ public class News {
     private final Object mDate;
     private String mTitle;
 
-
-    /**
-     * Time publication of the article
-     */
-    //private long mWebPublicationDate;
-
-
     /**
      * Website URL of the article
      */
