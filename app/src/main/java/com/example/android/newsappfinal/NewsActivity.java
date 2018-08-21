@@ -132,19 +132,29 @@ public class NewsActivity extends AppCompatActivity
 
         String defaultkeyword = sharedPrefs.getString(
                 getString(R.string.settings_order_by_keyword_key),
-                getString(R.string.settings_order_by_keyword_value)
+                getString(R.string.settings_order_by_default)
         );
+
+
+
+//        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+//        Uri.Builder uriBuilder = baseUri.buildUpon();
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("page-size", "10");
-        //uriBuilder.appendQueryParameter("minart", minArticle);
-        //uriBuilder.appendQueryParameter("order-by", "time");
-        uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("q", defaultkeyword);
 
-        uriBuilder.appendQueryParameter("q", "article");
+
+//        uriBuilder.appendQueryParameter("format", "json");
+//        uriBuilder.appendQueryParameter("page-size", "10");
+//        //uriBuilder.appendQueryParameter("minart", minArticle);
+//        //uriBuilder.appendQueryParameter("order-by", "time");
+//        uriBuilder.appendQueryParameter("order-by", "orderBy");
+//        uriBuilder.appendQueryParameter("q", "defaultkeyword");
 
         return new NewsLoader(this, uriBuilder.toString());
 

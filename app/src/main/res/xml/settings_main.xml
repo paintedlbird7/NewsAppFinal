@@ -12,7 +12,7 @@
         <!--android:title="@string/settings_min_article_label" />-->
 
     <EditTextPreference
-        android:defaultValue="@string/settings_order_by_keyword_value"
+        android:defaultValue="@string/settings_order_by_default"
         android:inputType="textNoSuggestions"
         android:key="@string/settings_order_by_keyword_key"
         android:selectAllOnFocus="true"
