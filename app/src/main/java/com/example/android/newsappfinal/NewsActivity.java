@@ -137,9 +137,6 @@ public class NewsActivity extends AppCompatActivity
 
 
 
-//        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
-//        Uri.Builder uriBuilder = baseUri.buildUpon();
-
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
@@ -147,14 +144,6 @@ public class NewsActivity extends AppCompatActivity
         uriBuilder.appendQueryParameter("page-size", "10");
         uriBuilder.appendQueryParameter("order-by", orderBy);
         uriBuilder.appendQueryParameter("q", defaultkeyword);
-
-
-//        uriBuilder.appendQueryParameter("format", "json");
-//        uriBuilder.appendQueryParameter("page-size", "10");
-//        //uriBuilder.appendQueryParameter("minart", minArticle);
-//        //uriBuilder.appendQueryParameter("order-by", "time");
-//        uriBuilder.appendQueryParameter("order-by", "orderBy");
-//        uriBuilder.appendQueryParameter("q", "defaultkeyword");
 
         return new NewsLoader(this, uriBuilder.toString());
 
